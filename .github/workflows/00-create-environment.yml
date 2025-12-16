@@ -1,0 +1,111 @@
+name:                                              00 - Create Control Plane Environment
+
+on:
+  workflow_dispatch:
+    inputs:
+      control_plane_name:
+        description:                               "Control Plane name"
+        required:                                  true
+        default:                                   "MGMT-WEEU-DEP01"
+      use_msi:
+        description:                               "Use Managed Identity"
+        required:                                  true
+        default:                                   "false"
+      msi_id:
+        description:                               "Managed Identity ID"
+        required:                                  false
+        default:                                   ""
+
+permissions:
+  issues:                                          write
+  contents:                                        write
+  actions:                                         write
+jobs:
+  create_environment:
+    name:                                          Create Environment
+    runs-on:                                       ubuntu-latest
+    container:
+      image:                                       ${{ vars.DOCKER_IMAGE }}
+
+    steps:
+      - name:                                      Get app token
+        id:                                        get_workflow_token
+        uses:                                      actions/create-github-app-token@v2
+        with:
+          app-id:                                  ${{ secrets.APPLICATION_ID }}
+          private-key:                             ${{ secrets.APPLICATION_PRIVATE_KEY }}
+
+      - name:                                      Checkout repository
+        uses:                                      actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          token:                                   ${{ steps.get_workflow_token.outputs.token }}
+
+      - name:                                      Create GitHub Environment
+        env:
+          GH_TOKEN:                                ${{ steps.get_workflow_token.outputs.token }}
+        run:                                       |
+          CONTROL_PLANE_NAME=${{ github.event.inputs.control_plane_name }}
+
+          environment=$(echo "${CONTROL_PLANE_NAME}" | awk -F'-' '{print $1}' | xargs)
+          region_code=$(echo "${CONTROL_PLANE_NAME}" | awk -F'-' '{print $2}' | xargs)
+          deployer_vnet=$(echo "${CONTROL_PLANE_NAME}" | awk -F'-' '{print $3}' | xargs)
+          region_code_lower=$(echo "${region_code}" | tr '[:upper:]' '[:lower:]')
+          use_msi=${{ github.event.inputs.use_msi }}
+          msi_id=${{ github.event.inputs.msi_id }}
+
+          pushd /source/deploy/terraform/terraform-units/modules/sap_namegenerator
+          region=$(echo "{ for k, v in var.region_mapping : v => k }[\"${region_code_lower}\"]" | terraform console | tr -d '"')
+          popd
+
+          echo "Environment: $environment"
+          echo "Region Code: $region_code"
+          echo "Region: $region"
+          echo "Deployer VNet: $deployer_vnet"
+
+          deployer_name=${CONTROL_PLANE_NAME}-INFRASTRUCTURE
+          library_name=${environment}-${region_code}-SAP_LIBRARY
+
+          url_to_call=/repos/${{ github.repository }}/environments/${CONTROL_PLANE_NAME^^}
+
+          _=$(gh api \
+            -X PUT \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            ${url_to_call})
+
+          mkdir -p WORKSPACES/DEPLOYER/${deployer_name^^}
+          mkdir -p WORKSPACES/LIBRARY/${library_name^^}
+
+          cat .cfg_template/deployer.tfvars \
+            | sed "s|@@ENV@@|${environment}|g" \
+            | sed "s|@@REGION@@|${region}|g" \
+            | sed "s|@@VNET@@|${deployer_vnet}|g" \
+            | sed "s|@@REGION_DISPLAY_NAME@@|${region}|g" \
+            > WORKSPACES/DEPLOYER/${deployer_name^^}/${deployer_name^^}.tfvars
+
+          if [ "${use_msi}" = "true" ]; then
+            sed -i "s|#user_assigned_identity_id=\".*\"|user_assigned_identity_id=\"${msi_id}\"|g" \
+              WORKSPACES/DEPLOYER/${deployer_name^^}/${deployer_name^^}.tfvars
+          fi
+
+          dns_label=$(echo "${CONTROL_PLANE_NAME}" | tr '[:upper:]' '[:lower:]' | tr '-' '.').contoso.net
+
+          cat .cfg_template/library.tfvars \
+            | sed "s|@@ENV@@|${environment}|g" \
+            | sed "s|@@REGION@@|${region}|g" \
+            | sed "s|@@DNS_LABEL@@|${dns_label}|g" \
+            > WORKSPACES/LIBRARY/${library_name^^}/${library_name^^}.tfvars
+
+          # Update the environment in the issue-closed workflow
+          # workspace=$(ls ${GITHUB_WORKSPACE}/WORKSPACES|tail -n 1)
+          # yq -i '.jobs.link-azure.environment = "'${deployer_name^^}'"' .github/workflows/issue-closed.yaml
+
+          git config --global --add safe.directory ${GITHUB_WORKSPACE}
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "sap-automation-deployer@noreply.github.com"
+
+          git add WORKSPACES
+          #git add .github/workflows/issue-closed.yaml
+
+          git commit -m "Add configuration for ${environment} in ${region}"
+          git push
