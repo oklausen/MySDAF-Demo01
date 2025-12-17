@@ -144,6 +144,7 @@ jobs:
           auth-type:                              IDENTITY
           tenant-id:                              ${{ vars.ARM_TENANT_ID }}
           subscription-id:                        ${{ vars.ARM_SUBSCRIPTION_ID }}
+          allow-no-subscriptions:                 true
 
       - name:                                     Azure Login with Service Principal
         if:                                       ${{ vars.USE_MSI != 'true' }}
@@ -302,6 +303,7 @@ jobs:
           auth-type:                              IDENTITY
           tenant-id:                              ${{ vars.ARM_TENANT_ID }}
           subscription-id:                        ${{ vars.ARM_SUBSCRIPTION_ID }}
+          allow-no-subscriptions:                 true
 
       - name:                                     Azure Login with Service Principal
         if:                                       ${{ vars.USE_MSI != 'true' }}
