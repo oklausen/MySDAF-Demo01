@@ -135,7 +135,7 @@ webapp_subnet_address_prefix = "10.170.20.80/28"
 deployer_enable_public_ip = false
 
 # deployer_count is an optional parameter that specifies the number of deployer VMs to be provisioned
-deployer_count=1
+deployer_count=2
 
 # deployer_size is optional and defines the virtual machine SKU
 #deployer_size="Standard_D4ds_v4"
