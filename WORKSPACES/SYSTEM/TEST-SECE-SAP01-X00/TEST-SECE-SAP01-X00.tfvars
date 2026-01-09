@@ -189,7 +189,7 @@ database_high_availability = false
 
 # For M series VMs use the SKU name for instance "M32ts"
 # If using a custom disk sizing populate with the node name for Database you have used in the file custom_disk_sizes_filename
-database_size = "E20ds_v4"
+database_size = "db"
 
 # database_vm_sku, if provided defines the Virtual Machine SKU to use for the database virtual machines"
 #database_vm_sku = ""
