@@ -64,14 +64,14 @@ use_secondary_ips = false
 #subscription = ""
 
 # use_scalesets_for_deployment defines if Flexible Virtual Machine Scale Sets are used for the deployment
-use_scalesets_for_deployment = false
+use_scalesets_for_deployment = true
 
 # scaleset_id defines the scale set Azure resource Id
 #scaleset_id = ""
 
 
 # database_use_premium_v2_storage defines if the database tier will use premium v2 storage
-database_use_premium_v2_storage = false
+database_use_premium_v2_storage = true
 
 # upgrade_packages defines if all packages should be upgraded after installation
 upgrade_packages = false
@@ -265,7 +265,7 @@ database_vm_image = {
   os_type = "LINUX",
   source_image_id = "",
   publisher = "SUSE",
-  offer = "sles-sap-15-sp4",
+  offer = "sles-sap-15-sp5",
   sku = "gen2",
   version = "latest",
   type = "marketplace"
@@ -281,7 +281,7 @@ database_vm_zones = ["1"]
 #database_vm_avset_arm_ids = []
 
 # Optional, Defines the that the database virtual machines will not be placed in a proximity placement group
-database_use_ppg = true
+database_use_ppg = false
 
 # Optional, Defines the that the database virtual machines will not be placed in an availability set
 database_use_avset = false
@@ -299,7 +299,7 @@ database_use_avset = false
 app_tier_sizing_dictionary_key = "Optimized"
 
 # enable_app_tier_deployment is a boolean flag controlling if the application tier should be deployed
-enable_app_tier_deployment = true
+enable_app_tier_deployment = false
 
 # app_tier_use_DHCP is a boolean flag controlling if Azure subnet provided IP addresses should be used (true)
 app_tier_use_DHCP = true
@@ -342,14 +342,14 @@ scs_server_image = {
   os_type = "LINUX",
   source_image_id = "",
   publisher = "SUSE",
-  offer = "sles-sap-15-sp4",
+  offer = "sles-sap-15-sp5",
   sku = "gen2",
   version = "latest",
   type = "marketplace"
 }
 
 # scs_server_use_ppg defines the that the SCS virtual machines will be placed in a proximity placement group
-scs_server_use_ppg = true
+scs_server_use_ppg = false
 
 # scs_server_use_avset defines the that the SCS virtual machines will be placed in an availability set
 scs_server_use_avset = false
@@ -380,7 +380,7 @@ scs_server_use_avset = false
 #########################################################################################
 
 # application_server_count defines how many application servers to deploy
-application_server_count = 2
+application_server_count = 1
 
 # application_server_zones is an optional list defining the availability zones to which deploy the application servers
 application_server_zones = ["1"]
@@ -410,10 +410,10 @@ app_tier_dual_nics = false
 #app_tier_authentication_type = ""
 
 # application_server_use_ppg defines the that the application server virtual machines will be placed in a proximity placement group
-application_server_use_ppg = true
+application_server_use_ppg = false
 
 # application_server_use_avset defines the that the application server virtual machines will be placed in an availability set
-application_server_use_avset = true
+application_server_use_avset = false
 
 # application_server_tags, if defined provides the tags to be associated to the application servers
 #application_server_tags = {}
@@ -425,7 +425,7 @@ application_server_image = {
   os_type = "LINUX",
   source_image_id = "",
   publisher = "SUSE",
-  offer = "sles-sap-15-sp4",
+  offer = "sles-sap-15-sp5",
   sku = "gen2",
   version = "latest",
   type = "marketplace"
@@ -440,7 +440,7 @@ application_server_image = {
 ############################################################################################
 
 # webdispatcher_server_count defines how many web dispatchers to deploy
-webdispatcher_server_count = 1
+webdispatcher_server_count = 0
 
 # web_sid is the Web Dispatcher SID
 web_sid = "W00"
@@ -487,7 +487,7 @@ webdispatcher_server_image = {
   os_type = "LINUX",
   source_image_id = "",
   publisher = "SUSE",
-  offer = "sles-sap-15-sp4",
+  offer = "sles-sap-15-sp5",
   sku = "gen2",
   version = "latest",
   type = "marketplace"
@@ -509,7 +509,7 @@ resource_offset = 1
 #vm_disk_encryption_set_id = ""
 
 # deploy_application_security_groups if defined will create application security groups
-deploy_application_security_groups = true
+deploy_application_security_groups = false
 
 # deploy_v1_monitoring_extension Defines if the Microsoft.AzureCAT.AzureEnhancedMonitoring extension will be deployed
 deploy_v1_monitoring_extension = true
