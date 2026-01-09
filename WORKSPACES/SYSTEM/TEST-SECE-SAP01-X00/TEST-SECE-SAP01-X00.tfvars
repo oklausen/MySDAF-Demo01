@@ -40,7 +40,7 @@ environment = "TEST"
 location = "swedencentral"
 
 #If you want to customize the disk sizes for VMs use the following parameter to specify the custom sizing file.
-#custom_disk_sizes_filename = ""
+custom_disk_sizes_filename = "TEST-SECE-SAP01-X00_custom_sizes.json"
 
 #If you want to provide a custom naming json use the following parameter.
 #name_override_file = ""
