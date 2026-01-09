@@ -76,7 +76,7 @@ management_subnet_address_prefix = "10.170.20.64/28"
 #########################################################################################
 
 # firewall_deployment is a boolean flag controlling if an Azure firewall is to be deployed in the deployer VNet
-firewall_deployment = true
+firewall_deployment = false
 
 # management_firewall_subnet_arm_id is an optional parameter that if provided specifies
 # Azure resource identifier for the existing firewall subnet
@@ -135,7 +135,7 @@ webapp_subnet_address_prefix = "10.170.20.80/28"
 deployer_enable_public_ip = false
 
 # deployer_count is an optional parameter that specifies the number of deployer VMs to be provisioned
-deployer_count=3
+deployer_count=1
 
 # deployer_size is optional and defines the virtual machine SKU
 #deployer_size="Standard_D4ds_v4"
