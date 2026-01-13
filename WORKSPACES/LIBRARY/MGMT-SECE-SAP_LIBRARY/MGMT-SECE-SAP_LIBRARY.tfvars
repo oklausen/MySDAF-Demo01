@@ -5,7 +5,7 @@ environment="MGMT"
 location="swedencentral"
 
 # Defines the DNS suffix for the resources
-dns_label = "mgmt.sece.dep01.contoso.net"
+dns_label = "mgmt.sece.oklvnet.contoso.net"
 
 # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
 use_private_endpoint = true
