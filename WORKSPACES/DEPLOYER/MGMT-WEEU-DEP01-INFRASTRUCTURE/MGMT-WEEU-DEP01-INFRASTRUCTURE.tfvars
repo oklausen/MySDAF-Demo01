@@ -180,7 +180,7 @@ deployer_image = {
 #use_spn = true
 
 # user_assigned_identity_id defines the user assigned identity that will be assigned to the deployers
-#user_assigned_identity_id="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/XXXXXXXX/providers/Microsoft.ManagedIdentity/userAssignedIdentities/xxxxxxxxxx"
+user_assigned_identity_id="ACSS-Deployment-Identity"
 
 
 #########################################################################################
