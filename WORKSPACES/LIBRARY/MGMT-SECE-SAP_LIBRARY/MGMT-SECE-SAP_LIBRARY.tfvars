@@ -5,14 +5,12 @@ environment="MGMT"
 location="swedencentral"
 
 # Defines the DNS suffix for the resources
-dns_label = "mgmt.sece.oklvnet.contoso.net"
+dns_label = "mgmt.sece.dep01.contoso.net"
 
 # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
 use_private_endpoint = true
 
 #assign_permissions = false
 
-
-
 # The parameter 'custom_random_id' can be used to control the random 3 digits at the end of the storage accounts and key vaults
-custom_random_id = "589"
+#custom_random_id="110"
