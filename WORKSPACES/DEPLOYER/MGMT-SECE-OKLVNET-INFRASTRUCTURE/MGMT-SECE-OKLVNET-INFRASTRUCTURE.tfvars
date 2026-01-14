@@ -141,7 +141,7 @@ deployer_count=1
 deployer_size="Standard_D4ads_v5"
 
 # deployer_disk_type is optional and defines the virtual machine disk type
-deployer_disk_type"="Premium_LRS"
+deployer_disk_type="Premium_LRS"
 
 # deployer_use_DHCP is a boolean flag controlling if Azure subnet provided IP addresses should be used (true)
 deployer_use_DHCP = true
