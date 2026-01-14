@@ -1,0 +1,6 @@
+deployer_tfstate_key=MGMT-SECE-OKLVNET-INFRASTRUCTURE.terraform.tfstate
+APPLICATION_CONFIGURATION_ID=/subscriptions/a54966c1-f3b1-4206-8c82-11715f10ba5f/resourceGroups/MGMT-SECE-OKLVNET-INFRASTRUCTURE/providers/Microsoft.AppConfiguration/configurationStores/mgmtseceapc148
+CONTROL_PLANE_NAME=MGMT-SECE-OKLVNET
+landscape_tfstate_key=TEST-SECE-SAP01-INFRASTRUCTURE.terraform.tfstate
+workloadkeyvault=TESTSECESAP01user6B9
+workload_zone_random_id=6b9
