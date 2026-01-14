@@ -180,7 +180,7 @@ deployer_image = {
 #use_spn = true
 
 # user_assigned_identity_id defines the user assigned identity that will be assigned to the deployers
-user_assigned_identity_id="b8fd920f-2e0a-4d8f-a1dd-1cb48fb1cdf5"
+user_assigned_identity_id=""
 
 
 #########################################################################################
