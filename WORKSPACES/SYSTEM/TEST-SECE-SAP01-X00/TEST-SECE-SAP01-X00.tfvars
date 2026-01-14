@@ -55,7 +55,7 @@ save_naming_information = true
 use_prefix = true
 
 # use_zonal_markers defines if a zonal markers will be added to the virtual machine resource names
-use_zonal_markers = false
+use_zonal_markers = true
 
 # use_secondary_ips controls if the virtual machines should be deployed with two IP addresses. Required for SAP Virtual Hostname support
 use_secondary_ips = false
@@ -74,10 +74,10 @@ use_scalesets_for_deployment = true
 database_use_premium_v2_storage = true
 
 # upgrade_packages defines if all packages should be upgraded after installation
-upgrade_packages = false
+upgrade_packages = true
 
 # user_assigned_identity_id defines the user assigned identity to be assigned to the Virtual machines
-#user_assigned_identity_id = ""
+user_assigned_identity_id = "/subscriptions/a54966c1-f3b1-4206-8c82-11715f10ba5f/resourcegroups/ACSS-DEMO-01/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ACSS-Deployment-Identity"
 
 #########################################################################################
 #                                                                                       #
@@ -169,7 +169,7 @@ use_fence_kdump_lun_scs = 4
 #                                                                                       #
 #########################################################################################
 
-database_sid = "HDB"
+database_sid = "XDB"
 
 # database_platform defines the database backend, supported values are
 # - HANA
@@ -296,10 +296,10 @@ database_use_avset = false
 #                                                                                       #
 #########################################################################################
 # app_tier_sizing_dictionary_key defines the VM SKU and the disk layout for the application tier servers.
-app_tier_sizing_dictionary_key = "Optimized"
+app_tier_sizing_dictionary_key = "app"
 
 # enable_app_tier_deployment is a boolean flag controlling if the application tier should be deployed
-enable_app_tier_deployment = false
+enable_app_tier_deployment = true
 
 # app_tier_use_DHCP is a boolean flag controlling if Azure subnet provided IP addresses should be used (true)
 app_tier_use_DHCP = true
