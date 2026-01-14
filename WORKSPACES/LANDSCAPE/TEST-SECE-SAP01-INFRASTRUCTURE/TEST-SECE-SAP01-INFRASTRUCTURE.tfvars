@@ -114,7 +114,7 @@ register_endpoints_with_dns = true
 
 
 # Defines the size of the install volume
-#install_volume_size = 1536
+install_volume_size = 1536
 
 # install_storage_account_id defines the Azure resource id for the install storage account
 #install_storage_account_id = ""
@@ -167,10 +167,10 @@ install_create_smb_shares = true
 # AFS indicates that Azure Files for NFS is used
 # ANF indicates that Azure NetApp Files is used
 # NFS indicates that a custom solution is used for NFS
-#NFS_provider = "AFS"
+NFS_provider = "AFS"
 
 # use_AFS_for_shared_storage defines if shared media is on AFS even when using ANF for data
-#use_AFS_for_shared_storage = true
+use_AFS_for_shared_storage = true
 
 #########################################################################################
 #                                                                                       #
