@@ -60,7 +60,7 @@ use_private_endpoint = true
 enable_firewall_for_keyvaults_and_storage = true
 
 # Defines if public access is allowed for the storage accounts and key vaults
-public_network_access_enabled = false
+public_network_access_enabled = true
 
 # enable_rbac_authorization_for_keyvault Controls the access policy model for the workload zone keyvault.
 enable_rbac_authorization_for_keyvault = true
@@ -114,7 +114,7 @@ register_endpoints_with_dns = true
 
 
 # Defines the size of the install volume
-#install_volume_size = 1536
+install_volume_size = 1536
 
 # install_storage_account_id defines the Azure resource id for the install storage account
 #install_storage_account_id = ""
@@ -167,10 +167,10 @@ install_create_smb_shares = true
 # AFS indicates that Azure Files for NFS is used
 # ANF indicates that Azure NetApp Files is used
 # NFS indicates that a custom solution is used for NFS
-#NFS_provider = "AFS"
+NFS_provider = "AFS"
 
 # use_AFS_for_shared_storage defines if shared media is on AFS even when using ANF for data
-#use_AFS_for_shared_storage = true
+use_AFS_for_shared_storage = true
 
 #########################################################################################
 #                                                                                       #
@@ -352,7 +352,7 @@ install_create_smb_shares = true
 ############################################################################################
 
 # If true, an AMS instance will be created
-#create_ams_instance = true
+#create_ams_instance = false
 
 # ams_instance_name If provided, the name of the AMS instance
 #ams_instance_name = ""
@@ -367,22 +367,22 @@ install_create_smb_shares = true
 #######################################4#######################################8
 
 # If true, a NAT gateway will be created
-#deploy_nat_gateway = false
+deploy_nat_gateway = true
 
 # If provided, the name of the NAT Gateway
-#nat_gateway_name = ""
+nat_gateway_name = "NATGW01"
 
 # If provided, the Azure resource id for the NAT Gateway
 #nat_gateway_arm_id = ""
 
 # If provided, the zones for the NAT Gateway public IP
-#nat_gateway_public_ip_zones = []
+nat_gateway_public_ip_zones = [1]
 
 # If provided, Azure resource id for the NAT Gateway public IP
 #nat_gateway_public_ip_arm_id = ""
 
 # The idle timeout in minutes for the NAT Gateway
-#nat_gateway_idle_timeout_in_minutes = 4
+nat_gateway_idle_timeout_in_minutes = 4
 
 # If provided, the tags for the NAT Gateway public IP
 #nat_gateway_public_ip_tags = {}
