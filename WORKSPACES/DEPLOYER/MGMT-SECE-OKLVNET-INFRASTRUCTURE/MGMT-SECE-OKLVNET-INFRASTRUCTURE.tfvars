@@ -76,7 +76,7 @@ management_subnet_address_prefix = "10.170.20.64/28"
 #########################################################################################
 
 # firewall_deployment is a boolean flag controlling if an Azure firewall is to be deployed in the deployer VNet
-firewall_deployment = false
+firewall_deployment = true
 
 # management_firewall_subnet_arm_id is an optional parameter that if provided specifies
 # Azure resource identifier for the existing firewall subnet
@@ -180,7 +180,7 @@ deployer_image = {
 #use_spn = true
 
 # user_assigned_identity_id defines the user assigned identity that will be assigned to the deployers
-user_assigned_identity_id="/subscriptions/a54966c1-f3b1-4206-8c82-11715f10ba5f/resourcegroups/ACSS-DEMO-01/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ACSS-Deployment-Identity"
+user_assigned_identity_id="b8fd920f-2e0a-4d8f-a1dd-1cb48fb1cdf5"
 
 
 #########################################################################################
@@ -242,4 +242,5 @@ application_configuration_deployment = true
 # List of subnet IDs to add to storage account and key vault firewalls"
 #subnets_to_add_to_firewall_for_keyvaults_and_storage=["<azure_resource_id_for_subnet>"]
 
-custom_random_id="1e6"
+# The parameter 'custom_random_id' can be used to control the random 3 digits at the end of the storage accounts and key vaults
+#custom_random_id="110"
