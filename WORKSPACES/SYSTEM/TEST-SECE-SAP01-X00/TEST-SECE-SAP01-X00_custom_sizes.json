@@ -2,7 +2,7 @@
   "db": {
     "Custom": {
       "compute": {
-        "vm_size": "Standard_E16ds_v5",
+        "vm_size": "Standard_E16ads_v5",
         "accelerated_networking": true
       },
       "storage": [
@@ -16,9 +16,9 @@
         {
           "name": "data-asm",
           "fullname": "",
-          "count": 4,
-          "disk_type": "Premium_LRS",
-          "size_gb": 256,
+          "count": 1,
+          "disk_type": "Premium_LRS_v2",
+          "size_gb": 1024,
           "caching": "ReadOnly",
           "write_accelerator": false,
           "lun_start": 5
