@@ -40,7 +40,7 @@ environment = "TEST"
 location = "swedencentral"
 
 #If you want to customize the disk sizes for VMs use the following parameter to specify the custom sizing file.
-custom_disk_sizes_filename = "TEST-SECE-SAP01-X00_custom_sizes.json"
+#custom_disk_sizes_filename = "TEST-SECE-SAP01-X00_custom_sizes.json"
 
 #If you want to provide a custom naming json use the following parameter.
 #name_override_file = ""
@@ -189,10 +189,10 @@ database_high_availability = false
 
 # For M series VMs use the SKU name for instance "M32ts"
 # If using a custom disk sizing populate with the node name for Database you have used in the file custom_disk_sizes_filename
-database_size = "db"
+database_size = "E20ds_v5"
 
 # database_vm_sku, if provided defines the Virtual Machine SKU to use for the database virtual machines"
-#database_vm_sku = ""
+database_vm_sku = "Standard_E16ads_v5"
 
 # database_instance_number if provided defines the instance number of the HANA database
 #database_instance_number = ""
@@ -296,7 +296,7 @@ database_use_avset = false
 #                                                                                       #
 #########################################################################################
 # app_tier_sizing_dictionary_key defines the VM SKU and the disk layout for the application tier servers.
-app_tier_sizing_dictionary_key = "app"
+app_tier_sizing_dictionary_key = "Optimized"
 
 # enable_app_tier_deployment is a boolean flag controlling if the application tier should be deployed
 enable_app_tier_deployment = true
