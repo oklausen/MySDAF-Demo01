@@ -76,7 +76,7 @@ management_subnet_address_prefix = "10.170.20.64/28"
 #########################################################################################
 
 # firewall_deployment is a boolean flag controlling if an Azure firewall is to be deployed in the deployer VNet
-firewall_deployment = true
+firewall_deployment = false
 
 # management_firewall_subnet_arm_id is an optional parameter that if provided specifies
 # Azure resource identifier for the existing firewall subnet
@@ -114,7 +114,7 @@ management_bastion_subnet_address_prefix = "10.170.20.128/26"
 #########################################################################################
 
 # use_webapp is a boolean flag controlling if configuration Web App is to be deployed in the deployer VNet
-#use_webapp = false
+use_webapp = true
 
 # webapp_subnet_arm_id is an optional parameter that if provided specifies Azure resource
 # identifier for the existing  subnet
@@ -138,10 +138,10 @@ deployer_enable_public_ip = false
 deployer_count=1
 
 # deployer_size is optional and defines the virtual machine SKU
-#deployer_size="Standard_D4ds_v4"
+deployer_size="Standard_D4ads_v5"
 
 # deployer_disk_type is optional and defines the virtual machine disk type
-#deployer_disk_type"="Premium_LRS"
+deployer_disk_type"="Premium_LRS"
 
 # deployer_use_DHCP is a boolean flag controlling if Azure subnet provided IP addresses should be used (true)
 deployer_use_DHCP = true
@@ -177,10 +177,10 @@ deployer_image = {
 #deployer_authentication_type="key"
 
 # use_spn defines if the deployments are performed using Service Principals or the deployer's managed identiry, true=SPN, false=MSI
-#use_spn = true
+use_spn = false
 
 # user_assigned_identity_id defines the user assigned identity that will be assigned to the deployers
-#user_assigned_identity_id="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/XXXXXXXX/providers/Microsoft.ManagedIdentity/userAssignedIdentities/xxxxxxxxxx"
+user_assigned_identity_id="/subscriptions/a54966c1-f3b1-4206-8c82-11715f10ba5f/resourcegroups/ACSS-DEMO-01/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ACSS-Deployment-Identity"
 
 
 #########################################################################################
