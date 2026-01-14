@@ -77,7 +77,7 @@ database_use_premium_v2_storage = true
 upgrade_packages = true
 
 # user_assigned_identity_id defines the user assigned identity to be assigned to the Virtual machines
-user_assigned_identity_id = "/subscriptions/a54966c1-f3b1-4206-8c82-11715f10ba5f/resourcegroups/ACSS-DEMO-01/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ACSS-Deployment-Identity"
+user_assigned_identity_id = "/subscriptions/a54966c1-f3b1-4206-8c82-11715f10ba5f/resourceGroups/ACSS-DEMO-01/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ACSS-Deployment-Identity"
 
 #########################################################################################
 #                                                                                       #
