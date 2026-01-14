@@ -1,4 +1,0 @@
-{
-    "configurationType": "Discovery",
-    "centralServerVmId": "/subscriptions/a54966c1-f3b1-4206-8c82-11715f10ba5f/resourceGroups/TEST-SECE-SAP01-X00/providers/Microsoft.Compute/virtualMachines/TEST-SECE-SAP01-X00_x00scs_z1_01l82b"
-}
