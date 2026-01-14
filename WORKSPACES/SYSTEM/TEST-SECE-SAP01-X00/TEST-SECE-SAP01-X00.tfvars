@@ -333,7 +333,7 @@ pas_instance_number = "00"
 scs_server_zones = ["1"]
 
 # scs_server_sku, if defined provides the SKU to use for the SCS servers
-#scs_server_sku = ""
+scs_server_sku = "Standard_D2as_v5"
 
 # The vm_image defines the Virtual machine image to use for the application servers,
 # if source_image_id is specified the deployment will use the custom image provided,
@@ -386,7 +386,7 @@ application_server_count = 1
 application_server_zones = ["1"]
 
 # application_server_sku, if defined provides the SKU to use for the application servers
-#application_server_sku = ""
+application_server_sku = "Standard_D2as_v5"
 
 # app_tier_dual_nics is a boolean flag controlling if the application tier servers should have two network cards
 app_tier_dual_nics = false
@@ -466,7 +466,7 @@ web_instance_number = "00"
 #webdispatcher_server_loadbalancer_ips = []
 
 # webdispatcher_server_sku, if defined provides the SKU to use for the web dispatchers
-#webdispatcher_server_sku = ""
+#webdispatcher_server_sku = "Standard_D2as_v5"
 
 # webdispatcher_server_use_ppg defines the that the Web dispatcher virtual machines will be placed in a proximity placement group
 webdispatcher_server_use_ppg = false
