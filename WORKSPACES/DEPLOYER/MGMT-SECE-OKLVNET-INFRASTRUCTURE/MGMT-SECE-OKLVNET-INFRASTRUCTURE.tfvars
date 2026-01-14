@@ -76,7 +76,7 @@ management_subnet_address_prefix = "10.170.20.64/28"
 #########################################################################################
 
 # firewall_deployment is a boolean flag controlling if an Azure firewall is to be deployed in the deployer VNet
-firewall_deployment = true
+firewall_deployment = fakse
 
 # management_firewall_subnet_arm_id is an optional parameter that if provided specifies
 # Azure resource identifier for the existing firewall subnet
@@ -177,10 +177,10 @@ deployer_image = {
 #deployer_authentication_type="key"
 
 # use_spn defines if the deployments are performed using Service Principals or the deployer's managed identiry, true=SPN, false=MSI
-#use_spn = true
+use_spn = false
 
 # user_assigned_identity_id defines the user assigned identity that will be assigned to the deployers
-user_assigned_identity_id=""
+user_assigned_identity_id="/subscriptions/a54966c1-f3b1-4206-8c82-11715f10ba5f/resourcegroups/MGMT-SECE-OKLVNET-INFRASTRUCTURE/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MGMT-SECE-OKLVNET-msi"
 
 
 #########################################################################################
