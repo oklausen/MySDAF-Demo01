@@ -180,7 +180,7 @@ deployer_image = {
 use_spn = false
 
 # user_assigned_identity_id defines the user assigned identity that will be assigned to the deployers
-user_assigned_identity_id="/subscriptions/a54966c1-f3b1-4206-8c82-11715f10ba5f/resourcegroups/MGMT-SECE-OKLVNET-INFRASTRUCTURE/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MGMT-SECE-OKLVNET-msi"
+user_assigned_identity_id="/subscriptions/a54966c1-f3b1-4206-8c82-11715f10ba5f/resourcegroups/ACSS-DEMO-01/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ACSS-Deployment-Identity"
 
 
 #########################################################################################
