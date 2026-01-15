@@ -14,4 +14,4 @@ library_random_id=b82
 REMOTE_STATE_SA=mgmtsecetfstateb82
 REMOTE_STATE_RG=MGMT-SECE-SAP_LIBRARY
 tfstate_resource_id=/subscriptions/a54966c1-f3b1-4206-8c82-11715f10ba5f/resourceGroups/MGMT-SECE-SAP_LIBRARY/providers/Microsoft.Storage/storageAccounts/mgmtsecetfstateb82
-step=3
+step=0
