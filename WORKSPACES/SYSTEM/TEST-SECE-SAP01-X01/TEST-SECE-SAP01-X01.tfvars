@@ -169,7 +169,7 @@ use_fence_kdump_lun_scs = 4
 #                                                                                       #
 #########################################################################################
 
-database_sid = "XDB"
+database_sid = "YDB"
 
 # database_platform defines the database backend, supported values are
 # - HANA
@@ -192,7 +192,7 @@ database_high_availability = false
 database_size = "E20ds_v5"
 
 # database_vm_sku, if provided defines the Virtual Machine SKU to use for the database virtual machines"
-database_vm_sku = "Standard_E16ads_v5"
+database_vm_sku = "Standard_E8ads_v5"
 
 # database_instance_number if provided defines the instance number of the HANA database
 #database_instance_number = ""
@@ -305,7 +305,7 @@ enable_app_tier_deployment = true
 app_tier_use_DHCP = true
 
 # sid is a mandatory field that defines the SAP Application SID
-sid = "X00"
+sid = "X01"
 
 #########################################################################################
 #                                                                                       #
@@ -314,7 +314,7 @@ sid = "X00"
 #########################################################################################
 
 # scs_server_count defines how many SCS servers to deploy
-scs_server_count = 1
+scs_server_count = 0
 
 # scs_high_availability is a boolean flag controlling if SCS should be highly available
 scs_high_availability = false
@@ -380,7 +380,7 @@ scs_server_use_avset = false
 #########################################################################################
 
 # application_server_count defines how many application servers to deploy
-application_server_count = 1
+application_server_count = 0
 
 # application_server_zones is an optional list defining the availability zones to which deploy the application servers
 application_server_zones = ["1"]
